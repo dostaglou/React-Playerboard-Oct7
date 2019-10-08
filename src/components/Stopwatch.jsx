@@ -10,7 +10,7 @@ class Stopwatch extends React.Component {
 
 handleStopwatch = () => {
   this.setState( prevState => ({
-    isRunning: !this.prevState.isRunning
+    isRunning: !prevState.isRunning
   }));
   if (!this.state.isRunning) {
     this.setState({ previousTime: Date.now() })
@@ -32,10 +32,11 @@ tick = () => {
 }
 
   render(){
+    const seconds = Math.floor(this.state.elapsedTime / 1000);
     return (
       <div className="Stopwatch">
         <h2>Stopwatch</h2>
-        <span className="stopwatch-time">0</span>
+        <span className="stopwatch-time">{seconds} sec</span>
         <button onClick={this.handleStopwatch}>
           { this.state.isRunning ? 'Stop' : 'Start'}
         </button>
