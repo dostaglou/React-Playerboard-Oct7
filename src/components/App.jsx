@@ -12,7 +12,7 @@ class App extends Component {
         name: "Guil",
         id: 1,
         score: 0
-      },Hello
+      },
       {
         name: "Treasure",
         id: 2,
