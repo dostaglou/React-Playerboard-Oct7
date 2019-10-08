@@ -32,11 +32,9 @@ tick = () => {
 }
 
 handleReset = () => {
-  this.setState( prevState => ({
-    isRunning: false,
+  this.setState({
     elapsedTime: 0,
-    previousTime: 0,
-  }))
+  })
 }
 
   render(){
