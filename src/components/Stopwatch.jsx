@@ -21,6 +21,10 @@ componentDidMount() {
   this.intervalID = setInterval(() => this.tick(), 100)
 }
 
+componentWillUnmount() {
+  clearInterval(this.intervalID);
+}
+
 tick = () => {
   if (this.state.isRunning) {
     const now = Date.now()
@@ -40,7 +44,7 @@ handleReset = () => {
   render(){
     const seconds = Math.floor(this.state.elapsedTime / 1000);
     return (
-      <div className="Stopwatch">
+      <div className="stopwatch">
         <h2>Stopwatch</h2>
         <span className="stopwatch-time">{seconds} sec</span>
         <button onClick={this.handleStopwatch}>
