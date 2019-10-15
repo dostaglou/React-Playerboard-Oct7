@@ -2,8 +2,6 @@ import React from 'react'
 
 const Counter = ({ index, score, scoreChange}) => {
 
-  let index = props.index;
-
   return (
     <div className="counter">
       <button className="counter-action decrement" onClick={()=> scoreChange(index, -1)} > - </button>
