@@ -5,7 +5,6 @@ class Stopwatch extends React.Component {
     isRunning: false,
     elapsedTime: 0,
     previousTime: 0
-
   };
 
 handleStopwatch = () => {

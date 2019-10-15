@@ -1,40 +1,30 @@
 import React from 'react'
 
-class AddPlayerForm extends React.Component {
+const AddPlayerForm = ({ addPlayer }) => {
+  // refs over controlled components when:
+    // constant rendering and validation are NOT required
+    // simple forms that need only track the final input data
+  let playerInput = React.createRef();
 
-  state = {
-    value: ""
-  };
-
-  handleValueChange = (e) => {
-    this.setState({value: e.target.value})
-    console.log(e.target.value)
-  }
-
-  handleSubmit = (e) => {
+  let handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addPlayer(this.state.value);
-    this.state.value = ""
+    addPlayer(playerInput.current.value);
+    e.currentTarget.reset()
   }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleValueChange}
-          placeholder="Enter a player's name"
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        ref={playerInput}
+        placeholder="Enter a player's name"
+      />
+      <input
+        type="submit"
+        value="Add Player"
         />
+    </form>
+  );
 
-        <input
-          type="submit"
-          value="Add Player"
-          />
-      </form>
-
-    );
-  }
 }
 
 

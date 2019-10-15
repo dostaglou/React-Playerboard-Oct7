@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import Stats from './stats';
 import Stopwatch from './Stopwatch'
 const Header = ({ players, title }) => {
@@ -12,4 +13,12 @@ const Header = ({ players, title }) => {
   );
 }
 
+Header.propTypes = {
+  title: PropTypes.string,
+  players: PropTypes.arrayOf(PropTypes.object),
+}
+// if no prop is passed, this default is ued
+Header.defaultProps = {
+  title: "Scoreboard",
+}
 export default Header
